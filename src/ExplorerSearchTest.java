@@ -17,4 +17,38 @@ public class ExplorerSearchTest {
 
     // Add more tests here!
     // Come up with varied cases
+    //0: start   1: walkable land,  2: no water 3: mountain
+
+
+    @Test
+    public void testReachableArea_allReachable(){
+        int[][] island ={
+            {0, 1, 1},
+            {1, 1, 1},
+            {1, 1, 1},
+        };
+        int result = ExplorerSearch.reachableArea(island);
+        assertEquals(9, result);
+    }
+
+    @Test
+    public void testReachableArea_onlyStart(){
+        int[][] island ={
+            {0}
+        };
+        int result = ExplorerSearch.reachableArea(island);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testReachableArea_blockedByWater(){
+        int[][] island={
+            {0, 2, 1},
+            {2, 2, 2},
+            {1, 2, 1}
+        };
+        int result = ExplorerSearch.reachableArea(island);
+        assertEquals(1, result);
+    }
+
 }

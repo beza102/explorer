@@ -78,5 +78,30 @@ public class ExplorerSearch {
         if (newR >= 0 && (island[newR][newC] == 0 || island[newR][newC] == 1)) {
             moves.add(new int[]{newR, newC});
         }
+
+        //down
+        newR = curR +1;
+        newC = curC;
+        if (newR < island.length && (island[newR][newC] == 0 || island[newR][newC] == 1)) {
+        moves.add(new int[]{newR, newC});
+        }
+
+        //left
+        newR = curR;
+        newC = curC -1;
+        if (newC >= 0 && (island[newR][newC] == 0 || island[newR][newC] == 1)) {
+        moves.add(new int[]{newR, newC});
+        }
+
+        //right
+        newR = curR;
+        newC = curC +1;
+        if (newC < island[0].length && (island[newR][newC] == 0 || island[newR][newC] == 1)) {
+        moves.add(new int[]{newR, newC});
+        }
+
+        return moves;
+
+
     }
 }
