@@ -72,5 +72,30 @@ public class ExplorerSearchTest {
         assertEquals(1, result); 
      }
 
+     @Test
+     public void testReachableArea_mixedBarriers(){
+
+        int[][] island ={
+            {2, 2, 3},
+            {3, 0, 2},
+            {2, 2, 3}
+        };
+        int result = ExplorerSearch.reachableArea(island);
+        assertEquals(1,  result);
+     }
+
+   @Test
+public void testReachableArea_surroundedByWaterAndMountains() {
+    int[][] island = {
+        {3, 3, 3, 3, 3},
+        {3, 0, 1, 1, 3},
+        {3, 1, 2, 1, 3},
+        {3, 1, 1, 1, 3},
+        {3, 3, 3, 3, 3}
+    };
+    int result = ExplorerSearch.reachableArea(island);
+    assertEquals(8, result);
+}
+
 
 }

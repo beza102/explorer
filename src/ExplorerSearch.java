@@ -41,10 +41,15 @@ public class ExplorerSearch {
     public static int reachableArea(int[][]island, int[] current, boolean[][] visited){
         int r = current[0];
         int c = current[1];
+
+        // If not walkable, return 0
+        if (island[r][c] != 0 && island[r][c] != 1) return 0;
         
         //if visited stop exploring
         if(visited[r][c]) return 0;
+
         visited[r][c] = true;
+        
         int count = 1;
 
         List<int[]> neighbors = possibleMoves(island, current);
